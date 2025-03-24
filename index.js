@@ -184,5 +184,36 @@ class AdventurerFactory {
     }
   }
   
-  const healers = new AdventurerFactory("Healer");
+//   const healers = new AdventurerFactory("Healer");
   const robin = healers.generate("Robin");
+
+
+
+
+
+  //Part 6: Developing Skills
+
+  class Adventurer extends Character{
+
+   duel(opponent) {
+console.log(`Duel opponent${this.name} and ${opponent.name}`);
+
+while(this.health>50&& opponent.health>50){
+
+    const  roll1=this.roll();
+    const roll2= opponent.roll();
+
+    const loser = roll1< roll2? this: opponent;
+    loser.health-=1;
+
+    console.log(`${this.name} rolled ${roll1 } (HP: ${this.health})
+         vs
+        ${opponent.name} rolled ${roll2 } (HP: ${opponent.health}`)
+}
+    }
+  }
+
+const winner =this.health>50? this :opponent;
+console.log(`${winner.name} wins the duel`);
+
+return winner;
